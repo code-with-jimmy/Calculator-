@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+  margin: 0;
+  padding: 0;
+}
+
+
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background: red; */
+  
+}
+
+.Item{
+  background: linear-gradient(45deg, #6A6E98, #1F2239);
+  padding: 30px;
+  border-radius: 40px 0px 40px 0px;
+  box-shadow: 0px 0px 10px gray;
+}
+
+
+
+
+
+
+.box{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  font-size: 200px;
+  width: 100%;
+  gap: 15px;
+  margin-top: 10px;
+
+}
+
+
+
+#taskInput{
+  width: 100%;
+  text-align: right;
+  height: 35px;
+  font-size: 19px;
+  font-weight: bold;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  outline: 0;
+  border: 0;
+}
+
+
+.box input{
+  width: 100%;
+  font-size: 40px;
+  background: transparent;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  border: 2px solid #EE8A8A;
+  font-size: 30px;
+  background: linear-gradient(45deg, #4BC780, #00642B);
+  transition: all 0.2s ease;
+  
+}
+
+.box input:active{
+  box-shadow: 0px 0px 30px #00A2FF;
+  transform: scale(0.9);
+}
+
+
+  </style>
+</head>
+<body>
+  <container class="container">
+    <div class="Item">
+      <div class="taskInputBox">
+      <input type="text" id="taskInput" readonly>
+      </div>
+   <div class="box"> 
+      <input type="button" value="AC" class="btn-AC">
+      <input type="button" value="%" class="btn" data="%">
+      <input type="button" value="DE" class="btn-DE">
+      <input type="button" value="/" class="btn" data="/">
+      <input type="button" value="7" class="btn" data="7">
+      <input type="button" value="8" class="btn" data="8">
+      <input type="button" value="9" class="btn" data="9">
+      <input type="button" value="*" class="btn" data="X">
+      <input type="button" value="4" class="btn" data="4">
+      <input type="button" value="5" class="btn" data="5">
+      <input type="button" value="6" class="btn" data="6">
+      <input type="button" value="-" class="btn" data="-">
+      <input type="button" value="1" class="btn" data="1">
+      <input type="button" value="2" class="btn" data="2">
+      <input type="button" value="3" class="btn" data="3">
+      <input type="button" value="+" class="btn" data="+">
+      <input type="button" value="00" class="btn" data="00">
+      <input type="button" value="0" class="btn" data="0">
+      <input type="button" value="." class="btn" data=".">
+      <input type="button" value="=" class="btn-equ">     
+      </div>
+      </div>
+  </section>
+  
+  <script>
+    document.getElementById("taskInput");
+  
+  
+  document.querySelectorAll(".btn").forEach(button => {
+    button.addEventListener("click", () => {
+      taskInput.value += button.value;
+    })
+  })
+  
+  
+  document.querySelector(".btn-AC").addEventListener("click", () => {
+    taskInput.value = "";
+  })
+    
+    
+  document.querySelector(".btn-DE").addEventListener("click", () => {
+    taskInput.value = taskInput.value.toString().slice(0, -1);
+  })
+  
+  
+  document.querySelector(".btn-equ").addEventListener("click", () => {
+    if(taskInput.value.includes("/0")){
+   taskInput.value = `[${taskInput.value}] 👈 😅 can't Divide`;
+    } else {
+    taskInput.value = eval(taskInput.value)
+    }
+  })
+  
+  </script>
+</body>
+</html>
+
