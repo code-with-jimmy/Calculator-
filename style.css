@@ -1,62 +1,74 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container{
+/* 1. Body पर ओवरफ़्लो रोकें */
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.container {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end; /* 'end' की जगह 'flex-end' यूज़ करें */
   background: linear-gradient(45deg, #555, #333);
+  padding: 10px; /* किनारे से चिपकेगा नहीं */
 }
 
-.box{
+.box {
+  width: 100%;
+  max-width: 360px; /* बॉक्स को स्क्रीन के हिसाब से फिक्स रखेगा */
   display: flex;
   flex-direction: column;
-  justify-content:center;
-  align-items:center;
-  font-size: 50px;
-  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.inputbox{
+.inputbox {
   width: 100%;
 }
 
-#taskInput{
+#taskInput {
   width: 100%;
-  height: 30px;
-  font-size: 20px;
+  height: 50px; /* थोड़ा बड़ा डिस्प्ले */
+  font-size: 30px;
   border: 0;
   outline: 0;
   background: transparent;
   color: #fff;
-  padding: 0px 4px;
+  padding: 0px 10px;
   text-align: right;
-  
 }
 
-.btns{
+.btns {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-gap: 10px;
-margin-bottom: 40px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.btn, .btn-AC, .btn-DE, .btn-equ{
-  font-size: 25px;
-  padding: 5px 20px;
-  border-radius: 0px 10px;
+/* 2. बटन की Padding ठीक की गई है ताकि 4 ग्रिड में सही फिट हों */
+.btn, .btn-AC, .btn-DE, .btn-equ {
+  width: 100%;
+  height: 55px; /* निश्चित हाइट */
+  font-size: 22px;
+  padding:0; /* फिक्स्ड पैडिंग हटा दी */
+  border-radius: 0px 14px;
   border: 2px solid #9ca3af;
   background: transparent;
   color: #9ca3af;
   transition: all 0.2s ease;
 }
 
-.btn:active, .btn-AC:active, .btn-DE:active, .btn-equ:active{
+.btn:active, .btn-AC:active, .btn-DE:active, .btn-equ:active {
   background: linear-gradient(45deg, #73ABCD, #696D6F);
   color: #444;
   transform: scale(0.94);
