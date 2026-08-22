@@ -4,12 +4,11 @@
   box-sizing: border-box;
 }
 
-/* पूरे पेज का स्क्रॉल बंद करने के लिए */
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* हर तरह का स्क्रॉल रोक देगा */
-  touch-action: manipulation; /* मोबाइल ज़ूम/स्क्रॉल को ब्लॉक करेगा */
+  overflow-x: hidden; /* सिर्फ साइड स्क्रॉल रोकेगा */
+  overflow-y: auto;   /* ऊपर-नीचे का स्वाइप चालू रखेगा */
 }
 
 .container {
