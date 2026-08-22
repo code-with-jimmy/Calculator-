@@ -4,26 +4,27 @@
   box-sizing: border-box;
 }
 
-/* 1. Body पर ओवरफ़्लो रोकें */
+/* पूरे पेज का स्क्रॉल बंद करने के लिए */
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden; /* हर तरह का स्क्रॉल रोक देगा */
+  touch-action: manipulation; /* मोबाइल ज़ूम/स्क्रॉल को ब्लॉक करेगा */
 }
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100dvh; /* 100vh की जगह 100dvh मोबाइल के लिए बेस्ट है */
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* 'end' की जगह 'flex-end' यूज़ करें */
+  align-items: flex-end;
   background: linear-gradient(45deg, #555, #333);
-  padding: 10px; /* किनारे से चिपकेगा नहीं */
+  padding: 10px;
 }
 
 .box {
   width: 100%;
-  max-width: 360px; /* बॉक्स को स्क्रीन के हिसाब से फिक्स रखेगा */
+  max-width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +38,7 @@ html, body {
 
 #taskInput {
   width: 100%;
-  height: 50px; /* थोड़ा बड़ा डिस्प्ले */
+  height: 50px;
   font-size: 30px;
   border: 0;
   outline: 0;
@@ -55,12 +56,11 @@ html, body {
   margin-bottom: 20px;
 }
 
-/* 2. बटन की Padding ठीक की गई है ताकि 4 ग्रिड में सही फिट हों */
 .btn, .btn-AC, .btn-DE, .btn-equ {
   width: 100%;
-  height: 55px; /* निश्चित हाइट */
+  height: 55px;
   font-size: 22px;
-  padding:0; /* फिक्स्ड पैडिंग हटा दी */
+  padding: 0;
   border-radius: 0px 14px;
   border: 2px solid #9ca3af;
   background: transparent;
