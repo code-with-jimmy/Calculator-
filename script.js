@@ -1,69 +1,100 @@
-// step 1 getting by refrance
+let btns = document.querySelectorAll(".btn");
+let input1 = document.querySelector("#task");
 
-const taskInput = document.getElementById("taskInput");
-
-const btn = document.querySelectorAll(".btn")
-
-
-const btnAc = document.querySelector(".btn-AC")
-
-
-const btnDe = document.querySelector(".btn-DE")
-
-
-const btnQqu = document.querySelector(".btn-equ");
-
-// click on show display 
-
-btn.forEach(button => {
-  button.addEventListener("click", () => {
-  taskInput.value += button.value;
-  save()
+btns.forEach((curl) => {
+  curl.addEventListener("click", () => {
+    input1.value += curl.value;
+    auto()
+    save()
   })
 })
 
 
-// display show data Location
-
-const old = localStorage.getItem("saving")
-if(old){
-taskInput.value = old;
-}
-
-// ac all clear data
-
-btnAc.addEventListener("click", () => {
-  taskInput.value = "";
-localStorage.removeItem("saving");
-})
+// step2
 
 
-
-// delete btn setup
-
-btnDe.addEventListener("click", () => {
-  taskInput.value = taskInput.value.toString().slice(0, -1)
-  save()
-})
+// let value = document.getElementById("value");
+let btn_eq = document.querySelector(".btn-eq");
+let num = document.getElementById("num");
 
 
-// final answer click
+function auto(){
 
-btnQqu.addEventListener("click", () => {
-  if(taskInput.value.includes("/0")){
-    taskInput.value = "0";
-    return;
-  }else{
-  taskInput.value = eval(taskInput.value);
-  save()
+  if(input1.value.includes("/0")){
+    input1.value = "0"
   }
-})
+  
+  let values1 = input1.value;
+  let num1 = values1 = eval(values1)
+  num.textContent = num1;
 
+  btn_eq.addEventListener("click", () => {
+  input1.value = num1;
+  num.textContent = "";
+    save()
+});
 
-
-
-// localStorage data save 
-
-const save = () => {
-  localStorage.setItem("saving", taskInput.value)
 }
+
+// step 3
+
+document.querySelector(".btn-ac").addEventListener("click", () => {
+  input1.value = "";
+  num.textContent = "";
+  localStorage.removeItem("jim")
+  localStorage.removeItem("jim1")
+})
+  
+
+
+
+
+
+document.querySelector(".btn-del").addEventListener("click", () => {
+   let ac =  input1.value = input1.value.toString().slice(0, -1);
+  num.textContent = "";
+    auto()
+  save()
+  })
+
+
+
+// localStorage
+
+
+
+
+function save() {
+  localStorage.setItem("jim", input1.value);
+
+  localStorage.setItem("jim1", num.textContent);
+}
+
+ let add = localStorage.getItem("jim");
+ let add1 = localStorage.getItem("jim1");
+
+  if(add){
+    input1.value = add;
+  }
+
+if(add1){
+  num.textContent = add1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
